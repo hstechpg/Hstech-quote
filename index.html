@@ -11,9 +11,10 @@
 > 가격 숫자만 교체하면 되고, 이 규칙들은 모델의 "구조"에 대한 것이라 안 바뀝니다.
 > **신제품 추가 / 단종**만 별도로 챙기면 됩니다. (맨 아래 체크리스트 참고)
 
-문서 기준 버전: **V6.17** (GAS **v81**과 사용)
+문서 기준 버전: **V6.18** (GAS **v81**과 사용)
 작성: 가격표 연 1회 업데이트 시 이 문서를 옆에 두고 작업하세요.
 
+※ V6.18 수정(HTML만, GAS 그대로 · PR53GC 굴절계 추가, 2026-11-12): 가격표에 아직 없는 미승인 굴절계 PR53GC를 내장 단품으로 추가 — 바이살라 견적 Q-00443566(2026-05-14, 유효 2026-08-12) 기준 List €8,541 · Dist €6,832.80(본사 할인 20%). 옵션코드 A11A1A1A0A0N 구성 그대로 상세내용 자동 입력. 나중에 드라이브 가격표에 PR53GC가 들어오면 그 가격으로 저절로 바뀜(Dist 비율 0.8 유지). INDIGO520 + A8N9D0NLAN(POLARIS 굴절계 지원)은 원래 계산됨 — List €2,587 · Dist €1,810.90으로 바이살라 견적과 같음
 ※ V6.17 수정(HTML만, GAS 그대로 · 품목 순서 바꾸기, 2026-11-09): 각 줄 오른쪽 ✕ 옆에 ⠿ 손잡이 추가. ① 손잡이를 끌어서 원하는 자리에 놓으면 순서 변경(초록 선이 놓일 자리 표시) ② 손잡이를 클릭하면 맨 위로/위로/아래로/맨 아래로 메뉴. 세트 대표 줄은 세트 전체(대표+구성품)가 한 덩어리로 움직이고, 구성품 줄은 자기 세트 안에서만 순서가 바뀜. DC(단위절삭) 줄은 항상 맨 아래 고정. 저장·인쇄·발주요청 모두 화면 순서 그대로 반영
 ※ V6.16 수정(HTML만, GAS 그대로 · 숫자 품명 불러오기 오류, 2026-11-06): 품명이 숫자만인 품목(예: 세트라 206)은 시트가 숫자로 바꿔 저장해서, 불러오기·복사 때 글자 처리에서 오류가 나 그 줄부터 구매$·상세내용·판매단가 복원이 모두 멈췄음. 이력 데이터를 받자마자 품명·코드·단위·상세내용·인쇄품명을 글자로 바꿔서 처리 → 저장된 구매$·디스크립션이 그대로 살아남. (저장된 데이터는 원래 멀쩡했음)
 ※ V6.15 수정(HTML만, GAS 그대로 · 세트라 납기 선택, 2026-11-04): SETRA 납기 선택 목록에 2~4주·4~6주·6~8주 추가 → 재고 보유 / 2~4주 / 4~6주 / 6~8주 / 8~10주(기본값은 그대로 8~10주). 고르면 '발주일로부터 ○~○주이내'로 들어감. 바이살라 목록은 그대로
@@ -889,7 +890,7 @@ node test_all_prices.js     # 전 제품 단가 점검 (깨진 가격 0이어야
       <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-top:7px;">
         <div class="subtitle">견적서 작성 시스템</div>
         <div style="text-align:right;">
-          <div id="version-badge" style="font-size:9px; color:#e2e8f0; letter-spacing:0.03em;">Built by DUCK ✦ V6.17</div>
+          <div id="version-badge" style="font-size:9px; color:#e2e8f0; letter-spacing:0.03em;">Built by DUCK ✦ V6.18</div>
           <div id="pb-label" style="font-size:9px; color:#e2e8f0; letter-spacing:0.03em; margin-top:2px; cursor:help;">Price Book 2026-03-26</div>
         </div>
       </div>
@@ -1327,6 +1328,8 @@ node test_all_prices.js     # 전 제품 단가 점검 (깨진 가격 0이어야
 
 <script>
 const PRODUCT_DB = {
+  // V6.18: 미승인 굴절계 — 가격표 미등재. 바이살라 견적 Q-00443566(2026-05-14) 기준, 본사 할인 20% (옵션코드 A11A1A1A0A0N 구성)
+  'PR53GC': { desc: "Compact Refractometer for General Purpose Applications||R.I. 1.320 - 1.530 nD (0 - 100 Brix)||Sapphire Prism||Type L Coupling 60.3 mm, Depth 14 mm, AISI316L||Protected Extra Low Voltage (PELV), General Purpose, 9..30 VDC Supply||Stainless Steel Housing||Calibration and Material Certificates||Standard Parameters and Settings||No Cable Included||Polaris Chemical Curve Polypropylene glycol, 0-100%, %wt", eurPrice: 8541, distPrice: 6832.8 },
   'MGP241': { desc: "MGP241 Multigas Probe", eurPrice: 7725, distPrice: 5407.5 },
   'MGP261': { desc: "MGP261 Multigas Probe", eurPrice: 10337, distPrice: 7235.9 },
   'MGP262': { desc: "MGP262 Multigas Probe", eurPrice: 10337, distPrice: 7235.9 },
